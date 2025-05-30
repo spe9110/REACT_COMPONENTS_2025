@@ -3,18 +3,22 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const validationSchema = yup.object({
     firstName: yup.string().min(2, 'Too Short!').max(20, 'Too Long!').required("Required"),
     lastName: yup.string().min(2, 'Too Short!').max(20, 'Too Long!').required("Required"), 
     type: yup.string().required("Required"), 
     email: yup.string().email("Invalid email address").required("Required"),
-    password: yup.string().min(6, 'Password must be at least 6 characters').required("Required"),
+    password: yup.string()
+                        .matches(/[!@#$%^&*(),.?":{}|<>]/, 'Password must contain at least 1 special character')
+                        .min(6, 'Password must be at least 6 characters')
+                        .required('Required'),
     confirmPassword: yup.string().oneOf([yup.ref('password'), null], 'Passwords must match').required("Required"),
     terms: yup.bool().oneOf([true], 'You must accept the terms and conditions').required("Required"),
 }).required();
 
-export const SignUpForm = () => {
+const SignUpForm = () => {
     const { register, handleSubmit, formState:{ errors } } = useForm({
         resolver: yupResolver(validationSchema)
     });
@@ -24,7 +28,7 @@ export const SignUpForm = () => {
     
     const onSubmit = data => console.log(data);
     return (
-        <div className="w-full flex min-h-[100vh] flex-1 flex-col items-center justify-start bg-slate-200 px-6 py-12 lg:px-8">
+        <div className="w-full flex min-h-[100vh] flex-1 flex-col items-center justify-start bg-slate-200 px-6 py-12 lg:px-8 m-0 sm:px-4">
             {/* form header */}
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                 <img
@@ -157,11 +161,13 @@ export const SignUpForm = () => {
 
                 <p className="mb-4 text-center text-sm text-gray-500">
                     Do you have an account?{' '}
-                    <a href="#" className="font-semibold text-blue-600 hover:text-blue-500">
+                    <Link to={"/signin"} className="font-semibold text-blue-600 hover:text-blue-500">
                         Sign in
-                    </a>
+                    </Link>
                 </p>
             </div>
         </div>
     );
 };
+
+export default SignUpForm;
