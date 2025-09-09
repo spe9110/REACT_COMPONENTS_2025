@@ -1,28 +1,14 @@
 import React from 'react'
-import { IoMdArrowBack } from "react-icons/io";
-import { useNavigate } from "react-router-dom";
+import MainContent from '../components/project_1/MainContent_1';
+import GoBackButton from '../components/GoBackButton';
+import Navbar_1 from '../components/project_1/Navbar_1';
 const FirstProject = () => {
-    const navigate = useNavigate();
+  
   return (
-     <div className="relative min-h-screen flex flex-col items-center justify-start bg-blue-950 text-white">
-      <h1 className="text-2xl font-bold mt-6">This is a static page in React</h1>
-
-      <div className=''>
-        <p className='mt-6 text-lg'>This is ordinary list</p>
-        <ul>
-            <li className='mt-6 text-lg'>Super popular JS library</li>
-            <li className='mt-6 text-lg'>Will help me be even more employable</li>
-            <li className='mt-6 text-lg'>React has a pretty cool logo</li>
-        </ul>
-      </div>
-
-      {/* Back Button */}
-      <button
-        onClick={() => navigate(-1)}
-        className="absolute top-4 left-4 p-2 rounded-xl bg-slate-400 text-slate-950 hover:bg-slate-500 transition cursor-pointer"
-      >
-        <IoMdArrowBack className="text-2xl" />
-      </button>
+     <div className="relative min-h-screen flex flex-col items-start justify-start bg-slate-950 text-white px-[64px]">
+      <Navbar_1 />
+      <MainContent />
+      <GoBackButton />
     </div>
   )
 }
