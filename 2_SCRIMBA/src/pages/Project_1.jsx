@@ -2,13 +2,15 @@ import React from 'react'
 import MainContent from '../components/project_1/MainContent_1';
 import GoBackButton from '../components/GoBackButton';
 import Navbar_1 from '../components/project_1/Navbar_1';
+import Footer from '../components/project_1/Footer';
 const FirstProject = () => {
   
   return (
-     <div className="relative min-h-screen flex flex-col items-start justify-start bg-slate-950 text-white px-[64px]">
+     <div className="relative min-h-screen flex flex-col items-start justify-start bg-slate-950 text-white">
       <Navbar_1 />
       <MainContent />
       <GoBackButton />
+      <Footer />
     </div>
   )
 }
