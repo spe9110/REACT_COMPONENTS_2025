@@ -1,10 +1,13 @@
 import React from 'react'
+import Header from '../components/Project_2/Header'
+import Entry from '../components/Project_2/Entry'
 
 const TravelJournal = () => {
   return (
-    <div>
-        <h1>Travel Journal Project</h1>
-    </div>
+    <>
+        <Header />
+        <Entry />
+    </>
   )
 }
 
