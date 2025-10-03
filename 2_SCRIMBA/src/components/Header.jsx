@@ -24,6 +24,14 @@ function Header() {
           >
             Project 1
           </NavLink>
+          <NavLink
+            to="/second"
+            className={({ isActive }) =>
+              isActive ? "text-red-500" : "text-black"
+            }
+          >
+            Project 2
+          </NavLink>
         </nav>
       </header>
     </>

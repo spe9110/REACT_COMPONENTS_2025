@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom"; // ✅ FIXED
 import Home from "./pages/Home";
 import FirstProject from "./pages/Project_1";
 import Layout from "./components/Layout";
+import TravelJournal from "./pages/Project_2";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           {/* Nested routes will render inside <Outlet /> */}
           <Route index element={<Home />} /> 
           <Route path="first" element={<FirstProject />} />
+          <Route path="second" element={<TravelJournal />} />
         </Route>
       </Routes>
     </div>
