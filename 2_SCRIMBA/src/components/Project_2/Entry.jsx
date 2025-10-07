@@ -1,12 +1,12 @@
 import React from 'react'
 import { FaMapMarkerAlt } from "react-icons/fa";
 
-const Entry = () => {
+const Entry = (props) => {
   return (
-    <div>
-        <article className="journal-entry flex w-full h-[300px]">
+    <div className='px-[40px] py-[10px]'>
+        <article className="journal-entry flex w-[700px] h-[300px] justify-center items-center gap-2 space-x-2 rounded-lg shadow">
             {/* Image container */}
-            <div className="main-image-container w-[200px] h-[300px] overflow-hidden">
+            <div className="main-image-container max-w-[200px] h-[300px] overflow-hidden rounded-lg">
                 <img
                 className="main-image w-full h-full object-cover"
                 src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrOvPv9GAoV9uhu89Nam5rEDqLLTdfiT6cWJfAjH08UiCHUmnQ14zIhNUzEVzK6SDgDYgxwMPAWcrrzrV7WqrIYarxgGdeTLCEsiv8euBjORpODesAIza22qrikxNliinF7i9Hv=w408-h422-k-no"
@@ -15,7 +15,7 @@ const Entry = () => {
             </div>
 
             {/* Text content */}
-            <div className="info-container p-4 flex flex-col space-y-2">
+            <div className="info-container w-[500px] h-auto p-4 flex flex-col space-y-2">
                 <div className="flex items-center space-x-2">
                 <FaMapMarkerAlt className="text-red-500" />
                 <span className="uppercase tracking-wide text-sm">Japan</span>
@@ -46,3 +46,26 @@ const Entry = () => {
 }
 
 export default Entry
+
+
+/*
+
+const app = () => {
+    const hours = new Date().getHours()
+    let timeOfDay
+    if (hours < 12) {
+        timeOfDay = "morning"
+        } else if (hours >= 12 && hours < 17) {
+        timeOfDay = "afternoon"
+        } else if (hours < 21) {
+            timeOfDay = "evening"
+        } else {
+            timeOfDay = "night"
+        }
+    }
+
+    return (
+        <h1>Good {timeOfDay}!</h1>
+    )
+}
+*/ 
